@@ -15,7 +15,6 @@ export default class FeedbackOptions extends Component {
     return (
       <FeedbackOptionsWrapper>
         <OptionList>
-          {console.log(this.props.options)}
           {this.propsNames.map(value => {
             return (
               <li key={shortid.generate()}>

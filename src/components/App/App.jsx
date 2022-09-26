@@ -3,6 +3,7 @@ import Section from 'components/Section/Section';
 import FeedbackOptions from 'components/Feedback/Feedback';
 import Statistics from 'components/Statistics/Statistics';
 import { Feedback } from './App.styles';
+import Notification from 'components/Notification/Notification';
 export default class App extends Component {
   state = {
     good: 0,
@@ -11,15 +12,9 @@ export default class App extends Component {
   };
 
   onStateChange = prevState => {
-    this.setState(
-      {
-        [prevState.target.name]: this.state[prevState.target.name] + 1,
-      },
-      () => {
-        this.countTotalFeedback();
-        this.countPositiveFeedbackPercentage();
-      }
-    );
+    this.setState({
+      [prevState.target.name]: this.state[prevState.target.name] + 1,
+    });
   };
   countTotalFeedback = () => {
     const totalFeedbackValue = Object.values(this.state);
@@ -55,7 +50,7 @@ export default class App extends Component {
               }}
             ></Statistics>
           ) : (
-            'No feedback given'
+            <Notification message={'There is no feedback'} />
           )}
         </Section>
       </Feedback>

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import shortid from 'shortid';
+
 import {
   FeedbackOptionsWrapper,
   OptionList,
@@ -17,7 +17,7 @@ export default class FeedbackOptions extends Component {
         <OptionList>
           {this.propsNames.map(value => {
             return (
-              <li key={shortid.generate()}>
+              <li key={value}>
                 <OptionButton
                   name={value}
                   type="button"
@@ -40,4 +40,5 @@ FeedbackOptions.propTypes = {
     bad: PropTypes.number.isRequired,
     neutral: PropTypes.number.isRequired,
   }),
+  onLeaveFeedback: PropTypes.func.isRequired,
 };

@@ -4,9 +4,6 @@ import PropTypes from 'prop-types';
 
 export default class Statistics extends Component {
   render() {
-    this.propsValues = Object.values(this.props.state);
-    this.propsNames = Object.keys(this.props.state);
-
     return (
       <StatisticsWrapper>
         <StatisticsList>
